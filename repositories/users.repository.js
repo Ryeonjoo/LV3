@@ -11,9 +11,17 @@ class UserRepository {
   //로그인 리포
   //닉넴,비번
   createLogin = async (nickname, password) => {
-    return await Users.findOne({ nickname, password });
+    return await Users.findOne({ where: { nickname, password } });
   };
 }
+// findUser = async ({ nickname }) => {
+//   const user = await Users.findOne({
+//   where: {
+//   nickname
+//   }
+//   });
+//   return user;
+//   };
 
 module.exports = UserRepository;
 

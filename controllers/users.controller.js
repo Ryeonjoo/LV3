@@ -20,11 +20,11 @@ class UsersController {
   //로그인
   createLogin = async (req, res, next) => {
     const { nickname, password } = req.body;
-    const loginData = await this.userService.createLogin({
+    const loginData = await this.userService.createLogin(
       nickname,
-      password,
-    });
-    res.status(200).json({ data: loginData });
+      password
+  );
+  
 
     const token = jwt.sign(
       { nickname: loginData.nickname },
@@ -33,8 +33,8 @@ class UsersController {
     res.cookie("authorization", `Bearer ${token}`);
     res.status(200).json({ data: loginData });
     return {
-      nickname: findLoginUser.nickname,
-      password: findLoginUser.password,
+      nickname: loginData.nickname,
+      password: loginData.password,
     };
   };
 }
