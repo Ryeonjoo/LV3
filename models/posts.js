@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       //Users 모델에서 N:1
       this.belongsTo(models.Users, { // 2. Users 모델에게 N:1 관계 설정을 합니다.
         targetKey: 'nickname', // 3. Users 모델의 nickname 컬럼을
-        foreignKey: 'Nickname', // 4. Posts 모델의 Nickname 컬럼과 연결합니다.
+        foreignKey: 'nickname', // 4. Posts 모델의 nickname 컬럼과 연결합니다.
       });
 
       //Comments 모델에서 1:N
@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true, // Primary Key (기본키)
         type: DataTypes.INTEGER,
       },
-      Nickname: {
+      nickname: {
         allowNull: false, // NOT NULL
         type: DataTypes.STRING,
       },

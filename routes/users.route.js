@@ -9,14 +9,19 @@ const UserController = new usersController();
 const re_nickname = /^[a-zA-Z0-9]{3,}$/; 
 const re_password = /^[a-zA-Z0-9]{4,}$/;
 
+
+router.post("/signup", UserController.createSignup)
+router.post("/login", UserController.createLogin)
+
+module.exports = router;
+
+
 //회원가입 API
 //[a-zA-Z0-9]{3,} //{4,}
 //닉넴,비번,비번확인--req
 //비번=비번확인
 //닉넴 중복 확인, 에러 출력
 
-router.post("/signup", UserController.createSignup)
-router.post("/login", UserController.createLogin)
 
 // router.post("/signup", async (req, res) => {
 //     const { nickname, password, confirm } = req.body;
@@ -86,7 +91,7 @@ router.post("/login", UserController.createLogin)
 
 // });
 
-module.exports = router;
+
 
 
 

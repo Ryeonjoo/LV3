@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true, // Primary Key (기본키)
         type: Sequelize.INTEGER
       },
-      Nickname: { //migration/Users테이블과 연관관계맺는 컬럼이다
+      nickname: { //migration/Users테이블과 연관관계맺는 컬럼이다
         allowNull: false, // NOT NULL
         type: Sequelize.STRING,
         references: { //특정테이블을 지정하기 위해 사용

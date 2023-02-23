@@ -18,19 +18,18 @@ class CommentsController {
   };
 
 
-  //댓글 생성
+  //댓글 작성
   //로그인 토큰검사
-  createComment = async (req, res, next) => {
-    const { nickname, postId, title, content } = req.body;
+  addComment = async (req, res, next) => {
+    const { nickname, postId, content } = req.body;
     //서비스 계층에 구현된 createPost로직을 실행한다.
-    const createCommentData = await this.commentService.createComment(
+    const result = await this.commentService.create(
       nickname,
       postId,
-      title,
       content
     );
 
-    res.status(201).json({ data: createCommentData });
+    res.status(201).json({ data: result });
   };
 
   //댓글 수정

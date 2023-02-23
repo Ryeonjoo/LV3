@@ -14,13 +14,13 @@ module.exports = (sequelize, DataTypes) => {
       //Posts 모델에서 1:N 
       this.hasMany(models.Posts, { // 2. Posts 모델에게 1:N 관계 설정을 합니다.
         sourceKey: 'nickname', // 3. Users 모델의 nickname 컬럼을
-        foreignKey: 'Nickname', // 4. Posts 모델의 Nickname 컬럼과 연결합니다.
+        foreignKey: 'nickname', // 4. Posts 모델의 nickname 컬럼과 연결합니다.
       });
 
       //Comments 모델에서 1:N
       this.hasMany(models.Comments, { // 2. Comments 모델에게 1:N 관계 설정을 합니다.
         sourceKey: 'nickname', // 3. Users 모델의 userId 컬럼을
-        foreignKey: 'Nickname', // 4. Comments 모델의 UserId 컬럼과 연결합니다.
+        foreignKey: 'nickname', // 4. Comments 모델의 UserId 컬럼과 연결합니다.
       });
     }
   }
