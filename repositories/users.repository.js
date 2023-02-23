@@ -1,4 +1,4 @@
-//리포에서 sequelize를 통해서 Posts테이블에 접근을 하기 위해서 사용하는거
+//리포에서 sequelize를 통해서 Users테이블에 접근을 하기 위해서 사용하는거
 const { Users } = require("../models");
 
 class UserRepository {
@@ -11,12 +11,7 @@ class UserRepository {
   //로그인 리포
   //닉넴,비번
   createLogin = async (nickname, password) => {
-    const loginData = await Users.findOne({
-      nickname,
-      password,
-    });
-
-    return loginData;
+    return await Users.findOne({ nickname, password });
   };
 }
 

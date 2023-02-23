@@ -21,21 +21,11 @@ class UserService {
 
   // 로그인 서비스
   createLogin = async (nickname, password) => {
-    const findLoginUser = await this.UserRepository.createLogin(
+    return await this.userRepository.createLogin( 
       nickname,
       password
     );
-    //jwt 검증, 30줄에 loginDate의 닉넴이 맞나?
-    const token = jwt.login(
-      { nickname: loginData.nickname },
-      "customized-secret-key"
-    );
-    res.cookie("authorization", `Bearer ${token}`);
-    res.status(200).json({ data: loginData });
-    return {
-      nickname: findLoginUser.nickname,
-      password: findLoginUser.password,
-    };
+  
   };
 }
 

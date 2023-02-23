@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const { Users } = require("../models");
 const router = express.Router();
 const usersController = require("../controllers/users.controller.js");
+const UserController = new usersController();
 
 //^:시작 $:종료
 const re_nickname = /^[a-zA-Z0-9]{3,}$/; 
@@ -14,8 +15,9 @@ const re_password = /^[a-zA-Z0-9]{4,}$/;
 //비번=비번확인
 //닉넴 중복 확인, 에러 출력
 
-router.post("/signup", usersController.createSignup)
-router.post("/login", usersController.createLogin)
+router.post("/signup", UserController.createSignup)
+router.post("/login", UserController.createLogin)
+
 // router.post("/signup", async (req, res) => {
 //     const { nickname, password, confirm } = req.body;
 
